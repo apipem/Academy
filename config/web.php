@@ -43,14 +43,21 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+
         'urlManager' => [
+            'class' => 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<alias:\w+>' => 'site/<alias>',
+                'gii/<controller:\w+>' => 'gii/<controller>',
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                '<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
