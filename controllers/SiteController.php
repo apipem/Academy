@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Persona;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -23,16 +24,26 @@ class SiteController extends Controller
                 'only' => ['logout'],
                 'rules' => [
                     [
+                        'actions' => ['home','index'],
+                        'allow' => true,
+                        'roles' => ['Administrador'],
+                    ],
+                    [
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['login'],
+                        'allow' => true,
+                        'roles' => ['?'],
                     ],
                 ],
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    //'logout' => ['get'],
                 ],
             ],
         ];
@@ -71,6 +82,8 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        var_dump(Yii::$app->user);
+        $this->layout = 'login';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }

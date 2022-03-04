@@ -36,6 +36,22 @@ class LoginForm extends Model
     }
 
     /**
+     * Returns the attribute labels.
+     *
+     * See Model class for more details
+     *
+     * @return array attribute labels (name => label).
+     */
+    public function attributeLabels()
+    {
+        return [
+            'username' => 'Documento de Identidad',
+            'password' => 'Contraseña',
+            'rememberMe' => 'Recordarme'
+        ];
+    }
+
+    /**
      * Validates the password.
      * This method serves as the inline validation for password.
      *
@@ -60,8 +76,18 @@ class LoginForm extends Model
     public function login()
     {
         if ($this->validate()) {
-            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
+            if(Persona::isFuncionario($this->getUser()->getId())){
+                Yii::$app->user->setReturnUrl('site/index');
+                return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
+            }else if(Persona::isEstudiante($this->getUser()->getId())){
+                Yii::$app->user->setReturnUrl('site/index');
+                return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
+            } else if(Persona::isAdministrador()){
+                Yii::$app->user->setReturnUrl('site/index');
+                return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
+            }
         }
+
         return false;
     }
 
@@ -73,7 +99,7 @@ class LoginForm extends Model
     public function getUser()
     {
         if ($this->_user === false) {
-            $this->_user = User::findByUsername($this->username);
+            $this->_user = Persona::findByUsername($this->username);
         }
 
         return $this->_user;
