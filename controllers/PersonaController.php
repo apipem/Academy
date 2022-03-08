@@ -23,7 +23,7 @@ class PersonaController extends Controller
             'class' => AccessControl::className(),
             'rules' => [
                 [
-                    'actions' => ['create', 'view', 'delete', 'index'],
+                    'actions' => ['create', 'view', 'delete', 'index','psico'],
                     'allow' => true,
                     'roles' => ['@','Adminstrador'],
                 ],
@@ -51,6 +51,11 @@ class PersonaController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }
+
+    public function actionPsico()
+    {
+        return $this->render('psico');
     }
 
     /**

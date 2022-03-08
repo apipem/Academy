@@ -26,6 +26,24 @@
     <meta property="og:type" content="website">
     <link rel="canonical" href="/">
 </head>
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+    </a>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+        <a class="btn btn-outline-primary me-2" href="/login">Login</a>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Registrar</button>
+    </div>
+</header>
 <body data-home-page="https://website1502757.nicepage.io/Casa.html?version=d8809972-41a2-4c9e-a898-a46c6903281c" data-home-page-title="Casa" class="u-body u-xl-mode">
 <section class="u-clearfix u-image u-shading u-section-1" id="sec-e15b">
     <div class="u-clearfix u-sheet u-sheet-1">
@@ -319,28 +337,86 @@
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Registrar</button>
 </div><br><br><br>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Registrar Estudiante</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form>
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                    <div class="row">
+                        <div class="col-2 mb-3">
+                            <label for="recipient-name" class="col-form-label">Nombres:</label>
+                        </div>
+                        <div class="col-10 mb-3">
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                    <div class="row">
+                        <div class="col-2 mb-3">
+                            <label for="recipient-name" class="col-form-label">Apellidos:</label>
+                        </div>
+                        <div class="col-10 mb-3">
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col-2 mb-3">
+                            <label for="recipient-name" class="col-form-label">Celular:</label>
+                        </div>
+                        <div class="col-10 mb-3">
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2 mb-3">
+                            <label for="recipient-name" class="col-form-label">Correo:</label>
+                        </div>
+                        <div class="col-10 mb-3">
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2 mb-3">
+                            <label for="recipient-name" class="col-form-label">Grado:</label>
+                        </div>
+                        <div class="col-10 mb-3">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected>Selecciona</option>
+                                <option value="1">6</option>
+                                <option value="2">7</option>
+                                <option value="3">8</option>
+                                <option value="3">9</option>
+                                <option value="3">10</option>
+                                <option value="3">11</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2 mb-3">
+                            <label for="recipient-name" class="col-form-label">jornada:</label>
+                        </div>
+                        <div class="col-3 mb-3">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Mañana
+                            </label>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Tarde
+                            </label>
+                        </div>
+                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Registrar</button>
             </div>
         </div>
     </div>

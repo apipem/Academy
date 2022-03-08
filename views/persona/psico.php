@@ -1,4 +1,4 @@
-﻿<table class="table table-striped">
+<table class="table table-striped">
     <thead>
     <tr>
         <th scope="col">Nombres</th>
@@ -7,7 +7,8 @@
         <th scope="col">Correo</th>
         <th scope="col">Grado</th>
         <th scope="col">Jornada</th>
-        <th scope="col">Accciones</th>
+        <th scope="col">Valoracion</th>
+        <th scope="col" colspan="2">Accciones</th>
     </tr>
     </thead>
     <tbody>
@@ -18,9 +19,11 @@
         <td>j@gmail.com</td>
         <td>6</td>
         <td>Tarde</td>
+        <td><input type="text" class="form-control" placeholder="Comentarios" aria-label="Username" aria-describedby="basic-addon1"></td>
         <td>
             <button type="button" class="btn btn-success">Aceptar</button>
-            <button type="button" class="btn btn-warning">En espera</button>
+            <button type="button" class="btn btn-danger">Rechazar</button>
+            <button type="button" class="btn btn-secondary">Archivos</button>
         </td>
     </tr>
     <tr>
@@ -30,31 +33,12 @@
         <td>j@gmail.com</td>
         <td>6</td>
         <td>Tarde</td>
+        <td><input type="text" class="form-control" placeholder="Comentarios" aria-label="Username" aria-describedby="basic-addon1"></td>
         <td>
             <button type="button" class="btn btn-success">Aceptar</button>
-            <button type="button" class="btn btn-warning">En espera</button>
+            <button type="button" class="btn btn-danger">Rechazar</button>
+            <button type="button" class="btn btn-secondary">Archivos</button>
         </td>
-    </tr>
-    </tbody>
-</table>
-
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th scope="col">Grado</th>
-        <th scope="col">Matriculados</th>
-        <th scope="col">Cupos</th>
-        <th scope="col">Jornada</th>
-        <th scope="col">Accciones</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>6</td>
-        <td>2</td>
-        <td>120</td>
-        <td>Mañana</td>
-        <td><button type="button" class="btn btn-primary">Cursos</button></td>
     </tr>
     </tbody>
 </table>
