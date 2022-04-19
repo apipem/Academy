@@ -11,7 +11,8 @@ AppAsset::register($this);
 <?php
 $session = Yii::$app->session;
 if ($session->isActive) {
-//if (1 == 1) { ?>
+//if (1 == 1) {
+?>
 <?php $this->beginPage() ?>
 <html lang="en">
 <head>
@@ -83,6 +84,8 @@ if ($session->isActive) {
 <script src="<?= Yii::$app->getUrlManager()->createUrl('js/bootstrap.bundle.min.js') ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?= Yii::$app->getUrlManager()->createUrl('js/adminlte.min.js') ?>"></script>
+<script src="<?= Yii::$app->getUrlManager()->createUrl('https://cdn.jsdelivr.net/npm/sweetalert2@11') ?>"></script>
+
 </body>
 <?php $this->endPage() ?>
 <?php } else { ?>
