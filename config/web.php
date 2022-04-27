@@ -23,7 +23,7 @@ $config = [
             'identityClass' => 'app\models\Persona',
             'enableAutoLogin' => true,
             'enableSession' => true,
-            'authTimeout' => 3600,
+            'authTimeout' => 1000,
             'loginUrl' => ['site/login'],
         ],
         'errorHandler' => [

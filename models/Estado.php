@@ -28,10 +28,8 @@ class Estado extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['idEstado', 'nombre'], 'required'],
-            [['idEstado'], 'integer'],
+            [['nombre'], 'required'],
             [['nombre'], 'string', 'max' => 45],
-            [['idEstado'], 'unique'],
         ];
     }
 

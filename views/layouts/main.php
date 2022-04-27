@@ -10,8 +10,8 @@ AppAsset::register($this);
 ?>
 <?php
 $session = Yii::$app->session;
-if ($session->isActive) {
-//if (1 == 1) {
+//if ($session->isActive) {
+if (1 == 1) {
 ?>
 <?php $this->beginPage() ?>
 <html lang="en">
