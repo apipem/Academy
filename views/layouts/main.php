@@ -139,14 +139,16 @@ if ($session->isActive and isset(Yii::$app->user->identity->nombre)) {
         function enviar(){
             $.ajax({
                 method: "get",
-                url: "<?= Yii::$app->getUrlManager()->createUrl('recurso/sedes') ?>",
-                data: { n1: "Pedro" ,
-                    a1: "Pedro" ,
-                    fc: "Pedro" ,
-                    g: "Pedro" ,
-                    j: "Pedro" ,
-                    ce: "Pedro" ,
-                    co: "Pedro" ,
+                url: "<?= Yii::$app->getUrlManager()->createUrl('recurso/persona') ?>",
+                data: { n1: $("#n1").val() ,
+                    a1: $("#a1").val()  ,
+                    fn: $("#fn").val()  ,
+                    se: $("#sede").val()  ,
+                    cur: $("#curso").val()  ,
+                    jor: $("#jornada").val()  ,
+                    n2: $("#n2").val()  ,
+                    ce: $("#ce").val() ,
+                    co: $("#co").val() ,
                 }
             });
         }

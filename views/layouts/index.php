@@ -353,13 +353,27 @@
                         <div class="col-6 mb-3">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Nombres:</label>
-                                <input type="text" name="nombre" class="form-control" id="recipient-name">
+                                <input type="text" name="nombre" id="n1" class="form-control">
                             </div>
                         </div>
                         <div class="col-6 mb-3">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Apellidos:</label>
-                                <input type="text" class="form-control" id="recipient-name">
+                                <input type="text" class="form-control" id="a1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Genero:</label>
+                                <input type="text" name="nombre" id="g" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Documento:</label>
+                                <input type="text" class="form-control" id="a1">
                             </div>
                         </div>
                     </div>
@@ -367,7 +381,7 @@
                         <div class="col-6 mb-3">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Fecha de nacimiento:</label>
-                                <input type="date" class="form-control" id="recipient-name">
+                                <input type="date" class="form-control" id="fn">
                             </div>
                         </div>
                         <div class="col-6 mb-3">
@@ -403,15 +417,15 @@
                     <hr>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Nombres y apellidos:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input type="text" class="form-control" id="n2">
                     </div>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Celular:</label>
-                        <input type="number" class="form-control" id="recipient-name">
+                        <input type="number" class="form-control" id="ce">
                     </div>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Correo:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input type="text" class="form-control" id="co">
                     </div>
 
             </div>
