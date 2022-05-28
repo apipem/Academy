@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Curso;
+use app\models\Sede;
 
 /**
- * CursoSearch represents the model behind the search form of `app\models\Curso`.
+ * SedeSearch represents the model behind the search form of `app\models\Sede`.
  */
-class CursoSearch extends Curso
+class SedeSearch extends Sede
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class CursoSearch extends Curso
     public function rules()
     {
         return [
-            [['idCurso', 'curso', 'cupos'], 'integer'],
-            [['fecha'], 'safe'],
+            [['idSede'], 'integer'],
+            [['nombre', 'direccion'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class CursoSearch extends Curso
      */
     public function search($params)
     {
-        $query = Curso::find();
+        $query = Sede::find();
 
         // add conditions that should always apply here
 
@@ -58,12 +58,11 @@ class CursoSearch extends Curso
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'idCurso' => $this->idCurso,
-            'curso' => $this->curso,
-            'cupos' => $this->cupos,
+            'idSede' => $this->idSede,
         ]);
 
-        $query->andFilterWhere(['like', 'fecha', $this->fecha]);
+        $query->andFilterWhere(['like', 'nombre', $this->nombre])
+            ->andFilterWhere(['like', 'direccion', $this->direccion]);
 
         return $dataProvider;
     }

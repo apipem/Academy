@@ -132,6 +132,11 @@
                 <i class="fas fa-th-large"></i>
             </a>
         </li>
+        <li class="nav-item">
+            <form action="/academy/web/logout" method="get">
+                <button class="btn btn-danger" type="submit">Cerrar sesion</button>
+            </form>
+        </li>
     </ul>
 </nav>
 <!-- /.navbar -->

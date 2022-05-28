@@ -3,34 +3,32 @@
 namespace app\models;
 
 use Yii;
-use yii\base\Exception;
-use yii\base\InvalidArgumentException;
-use yii\base\NotSupportedException;
-use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "persona".
  *
  * @property int $idPersona
- * @property string|null $nombre
- * @property string|null $apellido
- * @property string|null $tipoDocumento
- * @property int|null $documento
+ * @property string $nombre
+ * @property string $apellido
+ * @property int $documento
  * @property int $celular
  * @property string $correo
  * @property string $fechaNacimiento
  * @property string $rh
- * @property string $genero
  * @property string $direccion
  * @property string $ciudad
  * @property string $foto
  * @property string $contrasena
+ * @property int $TipoDocumento
+ * @property int $genero
  *
  * @property Estudiante[] $estudiantes
  * @property Estudiante[] $estudiantes0
  * @property Funcionario[] $funcionarios
+ * @property Genero $genero0
+ * @property TipoDocumento $tipoDocumento
  */
-class Persona extends \yii\db\ActiveRecord implements IdentityInterface
+class Persona extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     /**
      * {@inheritdoc}
@@ -46,13 +44,15 @@ class Persona extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['tipoDocumento', 'correo', 'genero', 'direccion', 'foto', 'contrasena','auth_key'], 'string'],
-            [['documento', 'celular'], 'integer'],
-            [['celular', 'correo', 'fechaNacimiento', 'rh', 'genero', 'direccion', 'ciudad', 'foto', 'contrasena'], 'required'],
+            [['nombre', 'apellido', 'documento', 'celular', 'correo', 'fechaNacimiento', 'rh', 'direccion', 'ciudad', 'foto', 'contrasena', 'TipoDocumento', 'genero'], 'required'],
+            [['documento', 'celular', 'TipoDocumento', 'genero'], 'integer'],
+            [['correo', 'direccion', 'foto', 'contrasena'], 'string'],
             [['fechaNacimiento'], 'safe'],
             [['nombre', 'apellido'], 'string', 'max' => 100],
             [['rh'], 'string', 'max' => 3],
             [['ciudad'], 'string', 'max' => 45],
+            [['genero'], 'exist', 'skipOnError' => true, 'targetClass' => Genero::className(), 'targetAttribute' => ['genero' => 'idGenero']],
+            [['TipoDocumento'], 'exist', 'skipOnError' => true, 'targetClass' => TipoDocumento::className(), 'targetAttribute' => ['TipoDocumento' => 'idTipo_Documento']],
         ];
     }
 
@@ -65,17 +65,17 @@ class Persona extends \yii\db\ActiveRecord implements IdentityInterface
             'idPersona' => 'Id Persona',
             'nombre' => 'Nombre',
             'apellido' => 'Apellido',
-            'tipoDocumento' => 'Tipo Documento',
             'documento' => 'Documento',
             'celular' => 'Celular',
             'correo' => 'Correo',
             'fechaNacimiento' => 'Fecha Nacimiento',
             'rh' => 'Rh',
-            'genero' => 'Genero',
             'direccion' => 'Direccion',
             'ciudad' => 'Ciudad',
             'foto' => 'Foto',
             'contrasena' => 'Contrasena',
+            'TipoDocumento' => 'Tipo Documento',
+            'genero' => 'Genero',
         ];
     }
 
@@ -99,6 +99,35 @@ class Persona extends \yii\db\ActiveRecord implements IdentityInterface
         return $this->hasMany(Estudiante::className(), ['acudiente' => 'idPersona']);
     }
 
+    /**
+     * Gets query for [[Funcionarios]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getFuncionarios()
+    {
+        return $this->hasMany(Funcionario::className(), ['Persona' => 'idPersona']);
+    }
+
+    /**
+     * Gets query for [[Genero0]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGenero0()
+    {
+        return $this->hasOne(Genero::className(), ['idGenero' => 'genero']);
+    }
+
+    /**
+     * Gets query for [[TipoDocumento]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTipoDocumento()
+    {
+        return $this->hasOne(TipoDocumento::className(), ['idTipo_Documento' => 'TipoDocumento']);
+    }
     //////////////////////Metodos para determinar si la persona es un funcionario o un aprendiz///////////////////
     public static function isFuncionario($id){
         if(Funcionario::findOne(['Persona' => $id])){
@@ -196,7 +225,7 @@ class Persona extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public function getAuthKey()
     {
-        return $this->auth_key;
+        return $this->contrasena;
     }
 
     /**
@@ -320,6 +349,4 @@ class Persona extends \yii\db\ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
-
-
 }

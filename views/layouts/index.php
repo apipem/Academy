@@ -40,7 +40,8 @@
     </ul>
 
     <div class="col-md-3 text-end">
-        <a class="btn btn-outline-primary me-2" href="/login">Login</a>
+        <a class="btn btn-outline-primary me-2" href="/academy/web/login">iniciar sesion</a>
+
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Registrar</button>
     </div>
 </header>
@@ -345,14 +346,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="/academy/web/persona/psico" method="post">
                     <h5>Datos del estudiante</h5>
                     <hr>
                     <div class="row">
                         <div class="col-6 mb-3">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Nombres:</label>
-                                <input type="text" class="form-control" id="recipient-name">
+                                <input type="text" name="nombre" class="form-control" id="recipient-name">
                             </div>
                         </div>
                         <div class="col-6 mb-3">
@@ -365,44 +366,39 @@
                     <div class="row">
                         <div class="col-6 mb-3">
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Edad:</label>
-                                <input type="number" class="form-control" id="recipient-name">
+                                <label for="recipient-name" class="col-form-label">Fecha de nacimiento:</label>
+                                <input type="date" class="form-control" id="recipient-name">
                             </div>
                         </div>
                         <div class="col-6 mb-3">
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Grado:</label>
-                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <label for="recipient-name" class="col-form-label">Sede:</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="sede">
                                     <option selected>Selecciona</option>
-                                    <option value="1">6</option>
-                                    <option value="2">7</option>
-                                    <option value="3">8</option>
-                                    <option value="3">9</option>
-                                    <option value="3">10</option>
-                                    <option value="3">11</option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
-
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">jornada:</label>
-                        <div class="row">
-                            <div class="col-3 mb-3">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Mañana
-                                </label>
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Curso:</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="curso">
+                                    <option selected>Selecciona</option>
+                                </select>
                             </div>
-                            <div class="col-3 mb-3">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Tarde
-                                </label>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Jornada:</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="jornada">
+                                    <option selected>Selecciona</option>
+                                </select>
                             </div>
                         </div>
                     </div>
+
                     <h5>Datos del Acudiente</h5>
                     <hr>
                     <div class="mb-3">
@@ -418,12 +414,12 @@
                         <input type="text" class="form-control" id="recipient-name">
                     </div>
 
-                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Registrar</button>
+                <button type="button" onclick="enviar()" class="btn btn-primary">Registrar</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

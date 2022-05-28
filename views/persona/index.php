@@ -31,20 +31,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'idPersona',
             'nombre',
             'apellido',
-            'tipoDocumento',
             'documento',
-            //'celular',
+            'celular',
             //'correo:ntext',
             //'fechaNacimiento',
             //'rh',
-            //'genero',
             //'direccion:ntext',
             //'ciudad',
             //'foto:ntext',
             //'contrasena:ntext',
+            //'TipoDocumento',
+            //'genero',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Persona $model, $key, $index, $column) {
+                'urlCreator' => function ($action, app\models\Persona $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'idPersona' => $model->idPersona]);
                  }
             ],

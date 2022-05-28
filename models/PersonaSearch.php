@@ -17,8 +17,8 @@ class PersonaSearch extends Persona
     public function rules()
     {
         return [
-            [['idPersona', 'documento', 'celular'], 'integer'],
-            [['nombre', 'apellido', 'tipoDocumento', 'correo', 'fechaNacimiento', 'rh', 'genero', 'direccion', 'ciudad', 'foto', 'contrasena'], 'safe'],
+            [['idPersona', 'documento', 'celular', 'TipoDocumento', 'genero'], 'integer'],
+            [['nombre', 'apellido', 'correo', 'fechaNacimiento', 'rh', 'direccion', 'ciudad', 'foto', 'contrasena'], 'safe'],
         ];
     }
 
@@ -62,14 +62,14 @@ class PersonaSearch extends Persona
             'documento' => $this->documento,
             'celular' => $this->celular,
             'fechaNacimiento' => $this->fechaNacimiento,
+            'TipoDocumento' => $this->TipoDocumento,
+            'genero' => $this->genero,
         ]);
 
         $query->andFilterWhere(['like', 'nombre', $this->nombre])
             ->andFilterWhere(['like', 'apellido', $this->apellido])
-            ->andFilterWhere(['like', 'tipoDocumento', $this->tipoDocumento])
             ->andFilterWhere(['like', 'correo', $this->correo])
             ->andFilterWhere(['like', 'rh', $this->rh])
-            ->andFilterWhere(['like', 'genero', $this->genero])
             ->andFilterWhere(['like', 'direccion', $this->direccion])
             ->andFilterWhere(['like', 'ciudad', $this->ciudad])
             ->andFilterWhere(['like', 'foto', $this->foto])

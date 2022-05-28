@@ -2,51 +2,43 @@
 
 namespace app\controllers;
 
-use app\models\Persona;
-use app\models\PersonaSearch;
-use Codeception\Module\Yii2;
-use yii\filters\AccessControl;
+use app\models\Sede;
+use app\models\SedeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use app\controllers\Yii;
 
 /**
- * PersonaController implements the CRUD actions for Persona model.
+ * SedeController implements the CRUD actions for Sede model.
  */
-class PersonaController extends Controller
+class SedeController extends Controller
 {
     /**
      * @inheritDoc
      */
     public function behaviors()
     {
-        return ['access' => [
-            'class' => AccessControl::className(),
-            'rules' => [
-                [
-                    'actions' => ['create', 'view', 'delete', 'index','psico'],
-                    'allow' => true,
-                    'roles' => ['?'],
+        return array_merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'delete' => ['POST'],
+                    ],
                 ],
-                ],],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
+            ]
+        );
     }
 
     /**
-     * Lists all Persona models.
+     * Lists all Sede models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new PersonaSearch();
+        $searchModel = new SedeSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -55,44 +47,31 @@ class PersonaController extends Controller
         ]);
     }
 
-    public function actionPsico()
-    {
-        $request = \Yii::$app->request;
-
-        $id = $request->post('nombre');
-
-        echo ($id);
-        echo ($id);
-        echo ($id);
-        echo ($id);
-        //return $this->render('psico');
-    }
-
     /**
-     * Displays a single Persona model.
-     * @param int $idPersona Id Persona
+     * Displays a single Sede model.
+     * @param int $idSede Id Sede
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($idPersona)
+    public function actionView($idSede)
     {
         return $this->render('view', [
-            'model' => $this->findModel($idPersona),
+            'model' => $this->findModel($idSede),
         ]);
     }
 
     /**
-     * Creates a new Persona model.
+     * Creates a new Sede model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new Persona();
+        $model = new Sede();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'idPersona' => $model->idPersona]);
+                return $this->redirect(['view', 'idSede' => $model->idSede]);
             }
         } else {
             $model->loadDefaultValues();
@@ -104,18 +83,18 @@ class PersonaController extends Controller
     }
 
     /**
-     * Updates an existing Persona model.
+     * Updates an existing Sede model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $idPersona Id Persona
+     * @param int $idSede Id Sede
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($idPersona)
+    public function actionUpdate($idSede)
     {
-        $model = $this->findModel($idPersona);
+        $model = $this->findModel($idSede);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'idPersona' => $model->idPersona]);
+            return $this->redirect(['view', 'idSede' => $model->idSede]);
         }
 
         return $this->render('update', [
@@ -124,29 +103,29 @@ class PersonaController extends Controller
     }
 
     /**
-     * Deletes an existing Persona model.
+     * Deletes an existing Sede model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $idPersona Id Persona
+     * @param int $idSede Id Sede
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($idPersona)
+    public function actionDelete($idSede)
     {
-        $this->findModel($idPersona)->delete();
+        $this->findModel($idSede)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Persona model based on its primary key value.
+     * Finds the Sede model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $idPersona Id Persona
-     * @return Persona the loaded model
+     * @param int $idSede Id Sede
+     * @return Sede the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($idPersona)
+    protected function findModel($idSede)
     {
-        if (($model = Persona::findOne(['idPersona' => $idPersona])) !== null) {
+        if (($model = Sede::findOne(['idSede' => $idSede])) !== null) {
             return $model;
         }
 

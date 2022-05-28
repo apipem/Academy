@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\models\Persona;
+use app\models\Sede;
+use app\models\SedeSearch;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -43,7 +45,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    //'logout' => ['get'],
+                    //'logout' => ['post'],
                 ],
             ],
         ];
@@ -72,7 +74,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $sedes = Sede::find()->all();
+        return $this->render('index',
+            ['sedes' => $sedes,'aa'=>"asdasdas"]
+        );
     }
 
     /**
@@ -107,6 +112,10 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
+        $session = Yii::$app->session;
+        $session->removeAll();
+        $session->destroy();
+
         return $this->goHome();
     }
 
@@ -123,6 +132,7 @@ class SiteController extends Controller
 
             return $this->refresh();
         }
+
         return $this->render('contact', [
             'model' => $model,
         ]);

@@ -4,19 +4,17 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Curso */
+/* @var $model app\models\Sede */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="curso-form">
+<div class="sede-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'curso')->textInput() ?>
+    <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'cupos')->textInput() ?>
-
-    <?= $form->field($model, 'fecha')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'direccion')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

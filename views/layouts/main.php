@@ -10,8 +10,7 @@ AppAsset::register($this);
 ?>
 <?php
 $session = Yii::$app->session;
-//if ($session->isActive) {
-if (1 == 1) {
+if ($session->isActive and isset(Yii::$app->user->identity->nombre)) {
 ?>
 <?php $this->beginPage() ?>
 <html lang="en">
@@ -85,7 +84,8 @@ if (1 == 1) {
 <!-- AdminLTE App -->
 <script src="<?= Yii::$app->getUrlManager()->createUrl('js/adminlte.min.js') ?>"></script>
 <script src="<?= Yii::$app->getUrlManager()->createUrl('https://cdn.jsdelivr.net/npm/sweetalert2@11') ?>"></script>
-
+<script src="<?= Yii::$app->getUrlManager()->createUrl('https://cdn.jsdelivr.net/npm/sweetalert2@11') ?>"></script>
+<script  src="<?= Yii::$app->getUrlManager()->createUrl('https://code.jquery.com/jquery-3.1.1.min.js') ?>"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 </body>
 <?php $this->endPage() ?>
 <?php } else { ?>
@@ -93,5 +93,63 @@ if (1 == 1) {
     <?php $this->beginBody() ?>
     <?php echo $this->render("index"); ?>
     <?php $this->endBody() ?>
+    <script  src="<?= Yii::$app->getUrlManager()->createUrl('https://code.jquery.com/jquery-3.1.1.min.js') ?>"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script>
+        function sedes(item, index) {
+            $("#sede").append("<option value='"+item["idSede"]+"'> "+item["nombre"]+"</option>");
+        }
+        function cursos(item, index) {
+            $("#curso").append("<option value='"+item["idCurso"]+"'> "+item["curso"]+"</option>");
+        }
+        function jornadas(item, index) {
+            $("#jornada").append("<option value='"+item["idJornada"]+"'> "+item["nombre"]+"</option>");
+        }
+
+        $(document).ready(function(){
+            $.ajax({
+                method: "get",
+                url: "<?= Yii::$app->getUrlManager()->createUrl('recurso/sedes') ?>",
+                success : function(json) {
+                    JSON.parse(json).forEach(sedes);
+                },
+            });
+
+            $.ajax({
+                method: "get",
+                url: "<?= Yii::$app->getUrlManager()->createUrl('recurso/jornadas') ?>",
+                success : function(json) {
+                    var a = JSON.parse(json)
+                    console.log(a)
+                    a.forEach(jornadas);
+                },
+            });
+
+            $.ajax({
+                method: "get",
+                url: "<?= Yii::$app->getUrlManager()->createUrl('recurso/cursos') ?>",
+                success : function(json) {
+                    var a = JSON.parse(json)
+                    console.log(a)
+                    a.forEach(cursos);
+                },
+            });
+        });
+
+
+        function enviar(){
+            $.ajax({
+                method: "get",
+                url: "<?= Yii::$app->getUrlManager()->createUrl('recurso/sedes') ?>",
+                data: { n1: "Pedro" ,
+                    a1: "Pedro" ,
+                    fc: "Pedro" ,
+                    g: "Pedro" ,
+                    j: "Pedro" ,
+                    ce: "Pedro" ,
+                    co: "Pedro" ,
+                }
+            });
+        }
+    </script>
     <?php $this->endPage() ?>
 <?php } ?>

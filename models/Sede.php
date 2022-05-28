@@ -9,7 +9,7 @@ use Yii;
  *
  * @property int $idSede
  * @property string $nombre
- * @property string|null $Direccion
+ * @property string|null $direccion
  *
  * @property Matricula[] $matriculas
  */
@@ -29,10 +29,8 @@ class Sede extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['idSede', 'nombre'], 'required'],
-            [['idSede'], 'integer'],
-            [['nombre', 'Direccion'], 'string', 'max' => 45],
-            [['idSede'], 'unique'],
+            [['nombre'], 'required'],
+            [['nombre', 'direccion'], 'string', 'max' => 45],
         ];
     }
 
@@ -44,7 +42,7 @@ class Sede extends \yii\db\ActiveRecord
         return [
             'idSede' => 'Id Sede',
             'nombre' => 'Nombre',
-            'Direccion' => 'Direccion',
+            'direccion' => 'Direccion',
         ];
     }
 

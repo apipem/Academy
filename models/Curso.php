@@ -10,10 +10,9 @@ use Yii;
  * @property int $idCurso
  * @property int $curso
  * @property int $cupos
- * @property string $jornada
- * @property string $año
+ * @property string $fecha
  *
- * @property Estudiantecurso[] $estudiantecursos
+ * @property Matricula[] $matriculas
  */
 class Curso extends \yii\db\ActiveRecord
 {
@@ -31,10 +30,9 @@ class Curso extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['curso', 'cupos', 'jornada', 'año'], 'required'],
+            [['curso', 'cupos', 'fecha'], 'required'],
             [['curso', 'cupos'], 'integer'],
-            [['jornada'], 'string'],
-            [['año'], 'safe'],
+            [['fecha'], 'string', 'max' => 20],
         ];
     }
 
@@ -47,18 +45,17 @@ class Curso extends \yii\db\ActiveRecord
             'idCurso' => 'Id Curso',
             'curso' => 'Curso',
             'cupos' => 'Cupos',
-            'jornada' => 'Jornada',
-            'año' => 'Año',
+            'fecha' => 'Fecha',
         ];
     }
 
     /**
-     * Gets query for [[Estudiantecursos]].
+     * Gets query for [[Matriculas]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getEstudiantecursos()
+    public function getMatriculas()
     {
-        return $this->hasMany(Estudiantecurso::className(), ['curso_idCurso' => 'idCurso']);
+        return $this->hasMany(Matricula::className(), ['curso' => 'idCurso']);
     }
 }
