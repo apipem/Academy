@@ -73,19 +73,30 @@ class RecursoController extends Controller
         $p->TipoDocumento = $_GET["td"];
         $p->save();
 
-        $pa = $p;
+        $pa = new Persona();
         $pa->idPersona = "";
         $pa->nombre = $_GET["n2"];
         $pa->apellido = $_GET["a2"];
+        $pa->documento = $_GET["documento"].$_GET["documento"];
+        $pa->celular = $_GET["ce"];
+        $pa->correo = $_GET["co"];
+        $pa->fechaNacimiento = $_GET["fn"];
+        $pa->direccion = $_GET["direccion"];
+        $pa->ciudad = $_GET["direccion"];
+        $pa->foto = "no tiene";
+        $pa->contrasena = $pa->documento;
+        $pa->genero = $_GET["genero"];
+        $pa->TipoDocumento = $_GET["td"];
         $pa->save();
 
         $e = new Estudiante();
+        $e->idestudiante = "";
         $e->estudiante = $p->idPersona;
         $e->acudiente = $pa->idPersona;
         $e->estado = 2;
         $e->save();
 
-        $matricula = new
+        return Json::encode($e);
     }
 
 

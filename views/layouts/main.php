@@ -166,6 +166,7 @@ if ($session->isActive and isset(Yii::$app->user->identity->nombre)) {
                     cur: $("#curso").val()  ,
                     jor: $("#jornada").val()  ,
                     n2: $("#n2").val()  ,
+                    a2: $("#a2").val()  ,
                     ce: $("#ce").val() ,
                     co: $("#co").val() ,
                     direccion: $("#direccion").val() ,

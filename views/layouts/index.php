@@ -432,8 +432,12 @@
                     <h5>Datos del Acudiente</h5>
                     <hr>
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Nombres y apellidos:</label>
+                        <label for="recipient-name" class="col-form-label">Nombres:</label>
                         <input type="text" class="form-control" id="n2">
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">apellidos:</label>
+                        <input type="text" class="form-control" id="a2">
                     </div>
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Celular:</label>
