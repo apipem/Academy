@@ -9,12 +9,13 @@ use Yii;
  *
  * @property int $idestudiante
  * @property int $estudiante
- * @property string $estado
  * @property int|null $acudiente
+ * @property int $estado
  *
  * @property Persona $acudiente0
+ * @property Estado $estado0
  * @property Persona $estudiante0
- * @property Estudiantecurso[] $estudiantecursos
+ * @property Matricula[] $matriculas
  * @property Observaciones[] $observaciones
  */
 class Estudiante extends \yii\db\ActiveRecord
@@ -34,8 +35,8 @@ class Estudiante extends \yii\db\ActiveRecord
     {
         return [
             [['estudiante', 'estado'], 'required'],
-            [['estudiante', 'acudiente'], 'integer'],
-            [['estado'], 'string', 'max' => 45],
+            [['estudiante', 'acudiente', 'estado'], 'integer'],
+            [['estado'], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['estado' => 'idEstado']],
             [['estudiante'], 'exist', 'skipOnError' => true, 'targetClass' => Persona::className(), 'targetAttribute' => ['estudiante' => 'idPersona']],
             [['acudiente'], 'exist', 'skipOnError' => true, 'targetClass' => Persona::className(), 'targetAttribute' => ['acudiente' => 'idPersona']],
         ];
@@ -49,8 +50,8 @@ class Estudiante extends \yii\db\ActiveRecord
         return [
             'idestudiante' => 'Idestudiante',
             'estudiante' => 'Estudiante',
-            'estado' => 'Estado',
             'acudiente' => 'Acudiente',
+            'estado' => 'Estado',
         ];
     }
 
@@ -65,6 +66,16 @@ class Estudiante extends \yii\db\ActiveRecord
     }
 
     /**
+     * Gets query for [[Estado0]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEstado0()
+    {
+        return $this->hasOne(Estado::className(), ['idEstado' => 'estado']);
+    }
+
+    /**
      * Gets query for [[Estudiante0]].
      *
      * @return \yii\db\ActiveQuery
@@ -75,13 +86,13 @@ class Estudiante extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Estudiantecursos]].
+     * Gets query for [[Matriculas]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getEstudiantecursos()
+    public function getMatriculas()
     {
-        return $this->hasMany(Estudiantecurso::className(), ['Estudiante_idestudiante' => 'idestudiante']);
+        return $this->hasMany(Matricula::className(), ['estudiante' => 'idestudiante']);
     }
 
     /**

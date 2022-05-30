@@ -171,8 +171,22 @@ if ($session->isActive and isset(Yii::$app->user->identity->nombre)) {
                     co: $("#co").val() ,
                     direccion: $("#direccion").val() ,
                     documento: $("#documento").val() ,
-                }
-
+                },
+                success : function(json) {
+                    if (json == "ok"){
+                        Swal.fire(
+                            'Felicitacion!',
+                            'Incripcion completa!',
+                            'success'
+                        )
+                    }else{
+                        Swal.fire(
+                            'Oh no!',
+                            'Algo salio mal!',
+                            'error'
+                        )
+                    }
+                },
             });
         }
     </script>

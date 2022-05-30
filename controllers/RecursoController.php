@@ -7,6 +7,7 @@ use app\models\CursoSearch;
 use app\models\Estudiante;
 use app\models\Genero;
 use app\models\Jornada;
+use app\models\Matricula;
 use app\models\Persona;
 use app\models\Sede;
 use app\models\TipoDocumento;
@@ -96,7 +97,15 @@ class RecursoController extends Controller
         $e->estado = 2;
         $e->save();
 
-        return Json::encode($e);
+        $matricula = new Matricula();
+        $matricula->estudiante = $e->idestudiante;
+        $matricula->curso = $_GET["cur"];
+        $matricula->complemento = "a";
+        $matricula->sede = $_GET["se"];
+        $matricula->jornada = $_GET["jor"];
+        $matricula->save();
+
+        return "ok";
     }
 
 

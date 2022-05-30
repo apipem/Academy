@@ -4,20 +4,20 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Estudiante */
+/* @var $model app\models\Matricula */
 
-$this->title = $model->idestudiante;
-$this->params['breadcrumbs'][] = ['label' => 'Estudiantes', 'url' => ['index']];
+$this->title = $model->idestudianteCurso;
+$this->params['breadcrumbs'][] = ['label' => 'Matriculas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="estudiante-view">
+<div class="matricula-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'idestudiante' => $model->idestudiante], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'idestudiante' => $model->idestudiante], [
+        <?= Html::a('Update', ['update', 'idestudianteCurso' => $model->idestudianteCurso], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'idestudianteCurso' => $model->idestudianteCurso], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -29,10 +29,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'idestudiante',
+            'idestudianteCurso',
             'estudiante',
-            'acudiente',
-            'estado',
+            'curso',
+            'complemento',
+            'sede',
+            'jornada',
         ],
     ]) ?>
 

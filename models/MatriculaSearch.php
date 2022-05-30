@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Estudiante;
+use app\models\Matricula;
 
 /**
- * EstudianteSearch represents the model behind the search form of `app\models\Estudiante`.
+ * MatriculaSearch represents the model behind the search form of `app\models\Matricula`.
  */
-class EstudianteSearch extends Estudiante
+class MatriculaSearch extends Matricula
 {
     /**
      * {@inheritdoc}
@@ -17,7 +17,8 @@ class EstudianteSearch extends Estudiante
     public function rules()
     {
         return [
-            [['idestudiante', 'estudiante', 'acudiente', 'estado'], 'integer'],
+            [['idestudianteCurso', 'estudiante', 'curso', 'sede', 'jornada'], 'integer'],
+            [['complemento'], 'safe'],
         ];
     }
 
@@ -39,7 +40,7 @@ class EstudianteSearch extends Estudiante
      */
     public function search($params)
     {
-        $query = Estudiante::find();
+        $query = Matricula::find();
 
         // add conditions that should always apply here
 
@@ -57,11 +58,14 @@ class EstudianteSearch extends Estudiante
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'idestudiante' => $this->idestudiante,
+            'idestudianteCurso' => $this->idestudianteCurso,
             'estudiante' => $this->estudiante,
-            'acudiente' => $this->acudiente,
-            'estado' => $this->estado,
+            'curso' => $this->curso,
+            'sede' => $this->sede,
+            'jornada' => $this->jornada,
         ]);
+
+        $query->andFilterWhere(['like', 'complemento', $this->complemento]);
 
         return $dataProvider;
     }
