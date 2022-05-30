@@ -339,7 +339,7 @@
 </div><br><br><br>
 
 <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Registrar Estudiante</h5>
@@ -350,13 +350,13 @@
                     <h5>Datos del estudiante</h5>
                     <hr>
                     <div class="row">
-                        <div class="col-6 mb-3">
+                        <div class="col-4 mb-3">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Nombres:</label>
                                 <input type="text" name="nombre" id="n1" class="form-control">
                             </div>
                         </div>
-                        <div class="col-6 mb-3">
+                        <div class="col-4 mb-3">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Apellidos:</label>
                                 <input type="text" class="form-control" id="a1">
@@ -367,7 +367,17 @@
                         <div class="col-6 mb-3">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Genero:</label>
-                                <input type="text" name="nombre" id="g" class="form-control">
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="genero">
+                                    <option selected>Selecciona</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Tipo de documento:</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="td">
+                                    <option selected>Selecciona</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-6 mb-3">

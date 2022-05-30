@@ -4,9 +4,11 @@ namespace app\controllers;
 
 use app\models\Curso;
 use app\models\CursoSearch;
+use app\models\Genero;
 use app\models\Jornada;
 use app\models\Persona;
 use app\models\Sede;
+use app\models\TipoDocumento;
 use yii\filters\AccessControl;
 use yii\helpers\Json;
 use yii\web\Controller;
@@ -28,7 +30,7 @@ class RecursoController extends Controller
             'class' => AccessControl::className(),
             'rules' => [
                 [
-                    'actions' => ['cursos', 'jornadas', 'sedes','persona'],
+                    'actions' => ['cursos', 'jornadas', 'sedes','persona','genero','td'],
                     'allow' => true,
                     'roles' => ['?'],
                 ],
@@ -42,20 +44,15 @@ class RecursoController extends Controller
         ];
     }
 
-    public function actionSedes()
-    {
-        return Json::encode(Sede::find()->all());
-    }
+    public function actionSedes(){return Json::encode(Sede::find()->all());}
 
-    public function actionCursos()
-    {
-        return Json::encode(Curso::find()->all());
-    }
+    public function actionCursos(){return Json::encode(Curso::find()->all());}
 
-    public function actionJornadas()
-    {
-        return Json::encode(Jornada::find()->all());
-    }
+    public function actionJornadas(){return Json::encode(Jornada::find()->all());}
+
+    public function actionGenero(){return Json::encode(Genero::find()->all());}
+
+    public function actionTd(){return Json::encode(TipoDocumento::find()->all());}
 
     public function actionPersona()
     {

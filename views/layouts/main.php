@@ -104,8 +104,27 @@ if ($session->isActive and isset(Yii::$app->user->identity->nombre)) {
         function jornadas(item, index) {
             $("#jornada").append("<option value='"+item["idJornada"]+"'> "+item["nombre"]+"</option>");
         }
+        function td(item, index) {
+            $("#td").append("<option value='"+item["idTipo_Documento"]+"'> "+item["tipo"]+"</option>");
+        }
 
         $(document).ready(function(){
+            $.ajax({
+                method: "get",
+                url: "<?= Yii::$app->getUrlManager()->createUrl('recurso/genero') ?>",
+                success : function(json) {
+                    JSON.parse(json).forEach(element => $("#genero").append("<option value='"+element["idGenero"]+"'> "+element["nombre"]+"</option>"));
+                },
+            });
+
+            $.ajax({
+                method: "get",
+                url: "<?= Yii::$app->getUrlManager()->createUrl('recurso/td') ?>",
+                success : function(json) {
+                    JSON.parse(json).forEach(td);
+                },
+            });
+
             $.ajax({
                 method: "get",
                 url: "<?= Yii::$app->getUrlManager()->createUrl('recurso/sedes') ?>",
@@ -119,7 +138,6 @@ if ($session->isActive and isset(Yii::$app->user->identity->nombre)) {
                 url: "<?= Yii::$app->getUrlManager()->createUrl('recurso/jornadas') ?>",
                 success : function(json) {
                     var a = JSON.parse(json)
-                    console.log(a)
                     a.forEach(jornadas);
                 },
             });
@@ -129,7 +147,6 @@ if ($session->isActive and isset(Yii::$app->user->identity->nombre)) {
                 url: "<?= Yii::$app->getUrlManager()->createUrl('recurso/cursos') ?>",
                 success : function(json) {
                     var a = JSON.parse(json)
-                    console.log(a)
                     a.forEach(cursos);
                 },
             });
