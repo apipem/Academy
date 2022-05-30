@@ -362,12 +362,18 @@
                                 <input type="text" class="form-control" id="a1">
                             </div>
                         </div>
+                        <div class="col-4 mb-3">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Direccion:</label>
+                                <input type="text" class="form-control" id="direccion">
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-6 mb-3">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Genero:</label>
-                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="genero">
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="genero<<" id="genero">
                                     <option selected>Selecciona</option>
                                 </select>
                             </div>
@@ -383,7 +389,7 @@
                         <div class="col-6 mb-3">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Documento:</label>
-                                <input type="text" class="form-control" id="a1">
+                                <input type="text" class="form-control" id="documento">
                             </div>
                         </div>
                     </div>

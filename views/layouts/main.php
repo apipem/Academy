@@ -160,13 +160,18 @@ if ($session->isActive and isset(Yii::$app->user->identity->nombre)) {
                 data: { n1: $("#n1").val() ,
                     a1: $("#a1").val()  ,
                     fn: $("#fn").val()  ,
+                    genero: $("#genero").val()  ,
+                    td: $("#td").val()  ,
                     se: $("#sede").val()  ,
                     cur: $("#curso").val()  ,
                     jor: $("#jornada").val()  ,
                     n2: $("#n2").val()  ,
                     ce: $("#ce").val() ,
                     co: $("#co").val() ,
+                    direccion: $("#direccion").val() ,
+                    documento: $("#documento").val() ,
                 }
+
             });
         }
     </script>

@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Curso;
 use app\models\CursoSearch;
+use app\models\Estudiante;
 use app\models\Genero;
 use app\models\Jornada;
 use app\models\Persona;
@@ -57,12 +58,34 @@ class RecursoController extends Controller
     public function actionPersona()
     {
         $p = new Persona();
+        $p->idPersona = "";
         $p->nombre = $_GET["n1"];
-        $p->apellido = $_GET["n1"];
-        $p->fechaNacimiento = $_GET["n1"];
-        $p->celular = $_GET["n1"];
-        $p->correo = $_GET["n1"];
-        return $_GET["n1"];
+        $p->apellido = $_GET["a1"];
+        $p->documento = $_GET["documento"];
+        $p->celular = $_GET["ce"];
+        $p->correo = $_GET["co"];
+        $p->fechaNacimiento = $_GET["fn"];
+        $p->direccion = $_GET["direccion"];
+        $p->ciudad = $_GET["direccion"];
+        $p->foto = "no tiene";
+        $p->contrasena = $_GET["ce"];
+        $p->genero = $_GET["genero"];
+        $p->TipoDocumento = $_GET["td"];
+        $p->save();
+
+        $pa = $p;
+        $pa->idPersona = "";
+        $pa->nombre = $_GET["n2"];
+        $pa->apellido = $_GET["a2"];
+        $pa->save();
+
+        $e = new Estudiante();
+        $e->estudiante = $p->idPersona;
+        $e->acudiente = $pa->idPersona;
+        $e->estado = 2;
+        $e->save();
+
+        $matricula = new
     }
 
 
