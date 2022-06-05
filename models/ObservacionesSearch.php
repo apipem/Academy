@@ -18,7 +18,7 @@ class ObservacionesSearch extends Observaciones
     {
         return [
             [['idobservaciones', 'funcionario_idfuncionarios', 'Estudiante_idestudiante'], 'integer'],
-            [['observacion'], 'safe'],
+            [['observacion', 'estado'], 'safe'],
         ];
     }
 
@@ -63,7 +63,8 @@ class ObservacionesSearch extends Observaciones
             'Estudiante_idestudiante' => $this->Estudiante_idestudiante,
         ]);
 
-        $query->andFilterWhere(['like', 'observacion', $this->observacion]);
+        $query->andFilterWhere(['like', 'observacion', $this->observacion])
+            ->andFilterWhere(['like', 'estado', $this->estado]);
 
         return $dataProvider;
     }

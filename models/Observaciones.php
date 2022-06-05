@@ -11,6 +11,7 @@ use Yii;
  * @property int $funcionario_idfuncionarios
  * @property int $Estudiante_idestudiante
  * @property string $observacion
+ * @property string|null $estado
  *
  * @property Estudiante $estudianteIdestudiante
  * @property Funcionario $funcionarioIdfuncionarios
@@ -34,6 +35,7 @@ class Observaciones extends \yii\db\ActiveRecord
             [['funcionario_idfuncionarios', 'Estudiante_idestudiante', 'observacion'], 'required'],
             [['funcionario_idfuncionarios', 'Estudiante_idestudiante'], 'integer'],
             [['observacion'], 'string'],
+            [['estado'], 'string', 'max' => 45],
             [['Estudiante_idestudiante'], 'exist', 'skipOnError' => true, 'targetClass' => Estudiante::className(), 'targetAttribute' => ['Estudiante_idestudiante' => 'idestudiante']],
             [['funcionario_idfuncionarios'], 'exist', 'skipOnError' => true, 'targetClass' => Funcionario::className(), 'targetAttribute' => ['funcionario_idfuncionarios' => 'idfuncionarios']],
         ];
@@ -49,6 +51,7 @@ class Observaciones extends \yii\db\ActiveRecord
             'funcionario_idfuncionarios' => 'Funcionario Idfuncionarios',
             'Estudiante_idestudiante' => 'Estudiante Idestudiante',
             'observacion' => 'Observacion',
+            'estado' => 'Estado',
         ];
     }
 

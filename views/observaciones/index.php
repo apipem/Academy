@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'funcionario_idfuncionarios',
             'Estudiante_idestudiante',
             'observacion:ntext',
+            'estado',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Observaciones $model, $key, $index, $column) {

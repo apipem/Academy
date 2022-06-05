@@ -370,7 +370,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6 mb-3">
+                        <div class="col-4 mb-3">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Genero:</label>
                                 <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="genero<<" id="genero">
@@ -378,7 +378,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-6 mb-3">
+                        <div class="col-4 mb-3">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Tipo de documento:</label>
                                 <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="td">
@@ -386,7 +386,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-6 mb-3">
+                        <div class="col-4 mb-3">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Documento:</label>
                                 <input type="text" class="form-control" id="documento">
@@ -431,23 +431,34 @@
 
                     <h5>Datos del Acudiente</h5>
                     <hr>
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Nombres:</label>
-                        <input type="text" class="form-control" id="n2">
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Nombres:</label>
+                            <input type="text" class="form-control" id="n2">
+                            </div>
+                        </div>
+                            <div class="col-6 mb-3">
+                                <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">apellidos:</label>
+                                <input type="text" class="form-control" id="a2">
+                                </div>
+                            </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">apellidos:</label>
-                        <input type="text" class="form-control" id="a2">
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Celular:</label>
+                                <input type="number" class="form-control" id="ce">
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Correo:</label>
+                                <input type="text" class="form-control" id="co">
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Celular:</label>
-                        <input type="number" class="form-control" id="ce">
-                    </div>
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Correo:</label>
-                        <input type="text" class="form-control" id="co">
-                    </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

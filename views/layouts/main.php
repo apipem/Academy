@@ -174,11 +174,16 @@ if ($session->isActive and isset(Yii::$app->user->identity->nombre)) {
                 },
                 success : function(json) {
                     if (json == "ok"){
-                        Swal.fire(
-                            'Felicitacion!',
-                            'Incripcion completa!',
-                            'success'
-                        )
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Inscrito!',
+                            text: 'Registro completo!',
+                        }).then((result) => {
+                            /* Read more about isConfirmed, isDenied below */
+                            if (result.isConfirmed) {
+                                window.location.reload();
+                            }
+                        })
                     }else{
                         Swal.fire(
                             'Oh no!',
