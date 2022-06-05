@@ -36,7 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'celular',
             'correo:ntext',
             'fechaNacimiento',
-            'rh',
             'direccion:ntext',
             'ciudad',
             'foto:ntext',

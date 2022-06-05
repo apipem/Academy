@@ -22,9 +22,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'correo')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'fechaNacimiento')->textInput() ?>
-
-    <?= $form->field($model, 'rh')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'fechaNacimiento')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'direccion')->textarea(['rows' => 6]) ?>
 

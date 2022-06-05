@@ -35,7 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'celular',
             //'correo:ntext',
             //'fechaNacimiento',
-            //'rh',
             //'direccion:ntext',
             //'ciudad',
             //'foto:ntext',
@@ -44,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'genero',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, app\models\Persona $model, $key, $index, $column) {
+                'urlCreator' => function ($action, Persona $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'idPersona' => $model->idPersona]);
                  }
             ],

@@ -4,12 +4,9 @@ namespace app\controllers;
 
 use app\models\Persona;
 use app\models\PersonaSearch;
-use Codeception\Module\Yii2;
-use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use app\controllers\Yii;
 
 /**
  * PersonaController implements the CRUD actions for Persona model.
@@ -21,22 +18,17 @@ class PersonaController extends Controller
      */
     public function behaviors()
     {
-        return ['access' => [
-            'class' => AccessControl::className(),
-            'rules' => [
-                [
-                    'actions' => ['create', 'view', 'delete', 'index','psico'],
-                    'allow' => true,
-                    'roles' => ['?'],
+        return array_merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'delete' => ['POST'],
+                    ],
                 ],
-                ],],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
+            ]
+        );
     }
 
     /**
@@ -53,19 +45,6 @@ class PersonaController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-    }
-
-    public function actionPsico()
-    {
-        $request = \Yii::$app->request;
-
-        $id = $request->post('nombre');
-
-        echo ($id);
-        echo ($id);
-        echo ($id);
-        echo ($id);
-        //return $this->render('psico');
     }
 
     /**
