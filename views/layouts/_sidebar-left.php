@@ -95,7 +95,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
-                    <a href="http://localhost/prog3/Prog3/web/" class="nav-link">
+                    <a href="http://localhost/academy/web/" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             INICIO
@@ -103,7 +103,6 @@
                         </p>
                     </a>
                 </li>
-                <?php if (Yii::$app->user->identity->nombre == "andres"){?>
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -121,6 +120,7 @@
                         </li>
                     </ul>
                 </li>
+                <?php if (Yii::$app->user->identity->nombre == "andres"){?>
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -138,58 +138,58 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Jornada
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="http://localhost/academy/web/jornada/index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Listar</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Sede
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="http://localhost/academy/web/sede/index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Listar</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            curso
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="http://localhost/academy/web/curso/index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Listar</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <?php } ?>
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Grados
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= Yii::$app->getUrlManager()->createUrl('grado/index') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Listar</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            matriculas
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="http://localhost/prog3/Prog3/web/matricula/index" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Listar</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Sedes
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="http://localhost/prog3/Prog3/web/sede/index" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Listar</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
             </ul>
 
         </nav>

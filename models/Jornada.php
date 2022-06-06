@@ -28,10 +28,8 @@ class Jornada extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['idJornada', 'nombre'], 'required'],
-            [['idJornada'], 'integer'],
+            [['nombre'], 'required'],
             [['nombre'], 'string', 'max' => 45],
-            [['idJornada'], 'unique'],
         ];
     }
 

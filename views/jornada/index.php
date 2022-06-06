@@ -6,18 +6,18 @@ use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\SedeSearch */
+/* @var $searchModel app\models\JornadaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Sedes';
+$this->title = 'Jornadas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="sede-index">
+<div class="jornada-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Sede', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Jornada', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -28,13 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'idSede',
+            'idJornada',
             'nombre',
-            'direccion',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, app\models\Sede $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'idSede' => $model->idSede]);
+                'urlCreator' => function ($action, app\models\Jornada $model, $key, $index, $column) {
+                    return Url::toRoute([$action, 'idJornada' => $model->idJornada]);
                  }
             ],
         ],
