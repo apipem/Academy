@@ -103,6 +103,7 @@
                         </p>
                     </a>
                 </li>
+                <?php if (Yii::$app->user->identity->nombre == "andres"){?>
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -113,7 +114,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="http://localhost/prog3/Prog3/web/persona/index" class="nav-link">
+                            <a href="http://localhost/academy/web/estudiante/index" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Listar</p>
                             </a>
@@ -124,19 +125,20 @@
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Cursos
+                            estado
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="http://localhost/prog3/Prog3/web/curso/index" class="nav-link">
+                            <a href="http://localhost/academy/web/estado/index" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Listar</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+                <?php } ?>
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
