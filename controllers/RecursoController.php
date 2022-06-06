@@ -37,7 +37,7 @@ class RecursoController extends Controller
                     'roles' => ['?'],
                 ],
                 [
-                    'actions' => ['estudiantes'],
+                    'actions' => ['estudiantes','matricula'],
                     'allow' => true,
                     'roles' => ['@'],
                 ],
@@ -122,6 +122,13 @@ class RecursoController extends Controller
             $a[] = $e ;
         }
         return Json::encode($a);
+    }
+
+    public function actionMatricula(){
+        $s = Estudiante::findOne($_GET["cur"]);
+        $s->estado = 1;
+        $s->save();
+        return "200";
     }
 
 }

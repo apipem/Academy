@@ -1,6 +1,35 @@
 ﻿<table class="table table-striped">
     <thead>
     <tr>
+        <th scope="col">Estudiante</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Curso</th>
+        <th scope="col">Celular</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Direccion</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    foreach (\app\models\Matricula::find()->all() as $c){
+        if ($c->estudiante0->estado0->nombre == "pre-matriculado"){
+    ?>
+        <tr>
+            <td><?= $c->estudiante0->estudiante0->nombre.' '.$c->estudiante0->estudiante0->apellido ?></td>
+            <td><?= 2022 - ($c->estudiante0->estudiante0->fechaNacimiento[0].$c->estudiante0->estudiante0->fechaNacimiento[1].$c->estudiante0->estudiante0->fechaNacimiento[2].$c->estudiante0->estudiante0->fechaNacimiento[3] )?> años</td>
+            <td><?= $c->curso0->curso ?></td>
+            <td><?= $c->estudiante0->estudiante0->celular ?></td>
+            <td><?= $c->estudiante0->estudiante0->correo ?></td>
+            <td><?= $c->estudiante0->estudiante0->direccion ?></td>
+            <td><a class="btn btn-primary" href="#asd" onclick="matricula(<?= $c->estudiante ?>)" role="button">Aprovar</a></td>
+        </tr>
+    <?php }}?>
+    </tbody>
+</table>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
         <th scope="col">Curso</th>
         <th scope="col">Matriculados</th>
         <th scope="col">Cupos</th>
@@ -113,6 +142,26 @@
                 var a = JSON.parse(json)
                 $("#dataa").children().remove();
                 a.forEach(es);
+            },
+        });
+    }
+
+    function matricula(id) {
+        $.ajax({
+            method: "get",
+            url: "<?= Yii::$app->getUrlManager()->createUrl('recurso/matricula') ?>",
+            data: { cur: id },
+            success : function(json) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Aprobado!',
+                    text: 'estudiante aprobado!',
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        window.location.reload();
+                    }
+                })
             },
         });
     }
