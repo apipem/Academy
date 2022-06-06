@@ -18,7 +18,14 @@
                 <?php $session = Yii::$app->session; if ($session->isActive) { ?>
                     <a href="#" class="d-block"><?= Yii::$app->user->identity->nombre." ".Yii::$app->user->identity->apellido  ?></a>
                 <?php }?>
-                <a href="" style="color:white;">administrador</a>
+                <?php if (Yii::$app->user->identity->nombre == "andres"){?>
+                <a href="" style="color:white;">Admin</a>
+                <?php }elseif (Yii::$app->user->identity->nombre == "Camila"){?>
+                <a href="" style="color:white;">Psicorientador</a>
+                <?php }else{?>
+                <a href="" style="color:white;">Secretaria</a>
+                <?php }?>
+
             </div>
         </div>
 
@@ -120,7 +127,7 @@
                         </li>
                     </ul>
                 </li>
-                <?php if (Yii::$app->user->identity->nombre == "andres"){?>
+                <?php if (Yii::$app->user->identity->nombre == "andres" || Yii::$app->user->identity->nombre == "Luis enrique"){?>
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
