@@ -29,10 +29,26 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'idestudiante',
-            'estudiante',
-            'acudiente',
-            'estado',
+            //'idestudiante',
+            [
+                'attribute' => 'estudiante',
+                'value' => function($model){
+                    return $model->estudiante0->nombre.' '.$model->estudiante0->apellido;
+                }
+            ],
+            [
+                'attribute' => 'acudiente',
+                'value' => function($model){
+                    return $model->acudiente0->nombre.' '.$model->acudiente0->apellido;
+                }
+            ]
+            ,
+            [
+                'attribute' => 'estado',
+                'value' => function($model){
+                    return $model->estado0->nombre;
+                }
+            ]
         ],
     ]) ?>
 

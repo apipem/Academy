@@ -28,13 +28,30 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'idestudiante',
-            'estudiante',
-            'acudiente',
-            'estado',
+            //'idestudiante',
+            [
+                'attribute' => 'estudiante',
+                'value' => function($model){
+                    return $model->estudiante0->nombre.' '.$model->estudiante0->apellido;
+                }
+            ],
+            [
+                'attribute' => 'acudiente',
+                'value' => function($model){
+                    return $model->acudiente0->nombre.' '.$model->acudiente0->apellido;
+                }
+            ]
+            ,
+            [
+                'attribute' => 'estado',
+                'value' => function($model){
+                    return $model->estado0->nombre;
+                }
+            ]
+            ,
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Estudiante $model, $key, $index, $column) {
+                'urlCreator' => function ($action, app\models\Estudiante $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'idestudiante' => $model->idestudiante]);
                  }
             ],

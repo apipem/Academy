@@ -36,6 +36,11 @@ class RecursoController extends Controller
                     'allow' => true,
                     'roles' => ['?'],
                 ],
+                [
+                    'actions' => ['estudiantes'],
+                    'allow' => true,
+                    'roles' => ['@'],
+                ],
             ],],
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -108,5 +113,15 @@ class RecursoController extends Controller
         return "ok";
     }
 
+    public function actionEstudiantes(){
+        $estudiantes = Matricula::find()->where('curso ='.$_GET["cur"])->all();
+        $a = array();
+        foreach ($estudiantes as $estudiante){
+            $e = $estudiante->estudiante0->estudiante0;
+            $e->foto = $estudiante->estudiante0->acudiente0->nombre." ".$estudiante->estudiante0->acudiente0->apellido;
+            $a[] = $e ;
+        }
+        return Json::encode($a);
+    }
 
 }
