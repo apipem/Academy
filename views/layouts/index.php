@@ -95,13 +95,11 @@
                     </div>
                     <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
                         <div class="u-container-layout u-valign-middle">
-                            <h2 class="u-text u-text-1">about us</h2>
-                            <h4 class="u-text u-text-2">Flexible modern language courses</h4>
-                            <p class="u-text u-text-3">&nbsp; Our evening language courses are split into ability levels from complete beginner through to advanced learners.<br>&nbsp; Each language level is divided into four six-week modules&nbsp;designed to follow smoothly
-                                on from each other to give a clear sense of progression.<br>&nbsp; Our modern language modules allow you to take language learning as far as you want to - from a single 6 week course to as many modules in a level as
-                                you need.
+                            <h2 class="u-text u-text-1">Sobre nosotros</h2>
+                            <p class="u-text u-text-3">&nbsp;Nuestros cursos de idiomas nocturnos se dividen en niveles de habilidad, desde principiantes hasta estudiantes avanzados.
+  Cada nivel de idioma se divide en cuatro módulos de seis semanas diseñados para seguirse sin problemas para dar una clara sensación de progresión.
+  Nuestros módulos de idiomas modernos le permiten llevar el aprendizaje de idiomas tan lejos como desee, desde un solo curso de 6 semanas hasta tantos módulos en un nivel como necesite.
                             </p>
-                            <a href="https://nicepage.cc" class="u-btn u-button-style u-palette-3-base u-btn-1">read more</a>
                         </div>
                     </div>
                 </div>
@@ -117,10 +115,10 @@
                 <div class="u-layout-row">
                     <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-1">
                         <div class="u-container-layout u-valign-middle">
-                            <h2 class="u-text u-text-1">OUR LANGUAGES</h2>
-                            <h4 class="u-text u-text-2">What do you want to learn to speak next?</h4>
-                            <p class="u-text u-text-3">Each language level is divided into four six-week modules&nbsp;designed to follow smoothly on from each other to give a clear sense of progression.Our modern language modules allow you to take language learning as far as
-                                you want to - from a single 6 week course to as many modules in a level as you need.</p>
+                            <h2 class="u-text u-text-1">Nuestros lenguajes</h2>
+                            <h4 class="u-text u-text-2">¿Qué quieres aprender a hablar a continuación?</h4>
+                            <p class="u-text u-text-3">Cada nivel de idioma se divide en cuatro módulos de seis semanas diseñados para seguirse sin problemas para dar una clara sensación de progresión. Nuestros módulos de idiomas modernos le permiten llevar el aprendizaje de idiomas tan lejos como sea posible.
+                                quieras, desde un solo curso de 6 semanas hasta tantos módulos en un nivel como necesites.</p>
                         </div>
                     </div>
                     <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1">
